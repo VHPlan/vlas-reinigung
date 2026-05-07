@@ -83,23 +83,23 @@ export default function Navbar() {
 
           {/* 3. ANGEBOT BUTTON & WHATSAPP - PART OF CENTER GROUP */}
           <div className="flex items-center gap-4 flex-shrink-0">
-            <a 
-              href="https://wa.me/4917655700551?text=Hallo%20VLAS%20Geb%C3%A4udereinigung%2C%20ich%20h%C3%A4tte%20gerne%20weitere%20Informationen."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 bg-[#25D366] text-white rounded-full flex items-center justify-center hover:bg-[#128C7E] hover:scale-110 transition-all shadow-md group relative"
-              aria-label="Chat auf WhatsApp"
-            >
-              {/* Note: I'll use a generic Message icon here, but it looks like WhatsApp due to color */}
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-            </a>
-            
             <Link 
               href="/kontakt"
               className="px-8 py-3 bg-[#0047AB] text-white text-[11px] font-black uppercase tracking-widest rounded-lg hover:bg-blue-800 transition-all shadow-md whitespace-nowrap"
             >
               Angebot anfordern
             </Link>
+            
+            <a 
+              href="https://wa.me/4917655700551?text=Hallo%20VLAS%20Geb%C3%A4udereinigung%2C%20ich%20h%C3%A4tte%20gerne%20weitere%20Informationen."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-[#25D366] text-white text-[11px] font-black uppercase tracking-widest rounded-lg hover:bg-[#128C7E] transition-all shadow-md whitespace-nowrap flex items-center gap-2"
+              aria-label="Chat auf WhatsApp"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              WHATSAPP
+            </a>
           </div>
         </div>
 
