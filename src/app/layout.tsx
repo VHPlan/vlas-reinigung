@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ClientFeatures from "@/components/ClientFeatures";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 // Configuram font-ul Inter ca standard global
 const inter = Inter({ subsets: ["latin"] });
@@ -39,6 +40,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <ClientFeatures />
+        <WhatsAppButton />
       </body>
     </html>
   );
