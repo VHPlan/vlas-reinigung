@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --m-blue: #0047AB; /* Royal Meister Blue */
+  --m-cyan: #00D1FF;
+  --m-white: #FFFFFF;
+  --m-gray: #F8FAFC;
+  --m-text: #0F172A;
+  
+  --transition-meister: all 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+@theme {
+  --font-sans: "Inter", "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  @apply bg-white text-[#0F172A] font-sans antialiased overflow-x-hidden;
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6 lg:px-12;
+}
+
+/* Master Heading Style */
+.h1-meister {
+  @apply text-6xl lg:text-[110px] font-black tracking-tighter leading-[0.85] uppercase;
+}
+
+.h2-meister {
+  @apply text-5xl lg:text-7xl font-black tracking-tighter leading-none uppercase;
+}
+
+/* Professional Card */
+.card-meister {
+  @apply bg-[#F8FAFC] p-12 rounded-[40px] border border-slate-100 transition-all duration-500 hover:bg-white hover:shadow-[0_40px_80px_-15px_rgba(0,71,171,0.1)] hover:-translate-y-4;
+}
+
+/* Blue Action Button */
+.btn-meister {
+  @apply px-12 py-6 bg-[#0047AB] text-white font-black uppercase tracking-widest text-xs rounded-full shadow-[0_20px_40px_rgba(0,71,171,0.2)] hover:bg-[#003580] hover:scale-105 active:scale-95 transition-all;
+}
+
+/* Glass Overlay Effect */
+.glass-overlay {
+  @apply bg-white/40 backdrop-blur-2xl border border-white/40 shadow-xl;
+}

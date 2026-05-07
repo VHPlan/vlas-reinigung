@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLAS Gebäudereinigung | Premium Reinigungsservice Karlsruhe</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="VLAS Gebäudereinigung Karlsruhe - Professionelle Reinigung für Unternehmen. Qualität, Pünktlichkeit und Transparenz auf höchstem Niveau.">
+    <meta property="og:title" content="VLAS Gebäudereinigung | Ihr Partner für Sauberkeit.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581578731522-658241010474?q=80&w=2070&auto=format&fit=crop">
+
+    <!-- Fonts: Inter for the clean vhplan.de aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563EB;
+            --primary-light: #60A5FA;
+            --primary-dark: #1D4ED8;
+            --accent: #06B6D4;
+            --navy: #0F172A;
+            --bg: #F8FAFC;
+            --white: #FFFFFF;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--white);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- Glow Backgrounds --- */
+        .glow-bg {
+            position: absolute; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            z-index: -1; pointer-events: none;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); z-index: 1000;
+            display: flex; align-items: center; transition: var(--transition);
+        }
+        nav.scrolled { height: 70px; background: var(--white); box-shadow: var(--shadow); }
+        nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        
+        /* --- Logo Styling --- */
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 0; 
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .logo img {
+            height: 60px; /* Dimensiune optimă pentru navbar */
+            width: auto;
+            display: block;
+        }
+        .logo:hover { transform: scale(1.02); }
+
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a { font-size: 15px; font-weight: 600; color: var(--text-main); text-decoration: none; transition: var(--transition); }
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-nav {
+            background: var(--primary); color: white; padding: 12px 24px;
+            border-radius: 10px; font-size: 14px; font-weight: 700; text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); transition: var(--transition);
+        }
+        .btn-nav:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+        /* --- Hero Section --- */
+        #hero {
+            padding: 180px 0 120px;
+            position: relative;
+            background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+            overflow: hidden;
+        }
+        
+        #hero .container { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+        
+        .hero-badge {
+            display: inline-block; padding: 8px 16px; background: var(--white);
+            color: var(--primary); border-radius: 999px; font-size: 13px; font-weight: 700;
+            margin-bottom: 32px; border: 1px solid var(--border); box-shadow: var(--shadow);
+        }
+        
+        #hero h1 {
+            font-size: clamp(40px, 6vw, 64px); font-weight: 800; color: var(--navy);
+            line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px;
+        }
+        
+        #hero p {
+            font-size: 20px; color: var(--text-muted); max-width: 550px;
+            margin-bottom: 48px; line-height: 1.6;
+        }
+        
+        .hero-btns { display: flex; gap: 20px; }
+        .btn-primary {
+            background: var(--primary); color: white; padding: 20px 40px;
+            border-radius: 14px; font-size: 16px; font-weight: 700; text-decoration: none;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3); transition: var(--transition);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4); }
+        
+        .btn-secondary {
+            background: var(--white); color: var(--navy); padding: 20px 40px;
+            border-radius: 14px; font-size: 16px; font-weight: 700; text-decoration: none;
+            border: 1px solid var(--border); box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+
+        .hero-visual { position: relative; }
+        .hero-img-wrapper {
+            position: relative; border-radius: var(--radius-lg); overflow: hidden;
+            border: 8px solid var(--white); box-shadow: var(--shadow-xl);
+            transform: perspective(1000px) rotateY(-5deg);
+        }
+        .hero-img-wrapper img { width: 100%; display: block; }
+
+        /* Floating Info Cards */
+        .float-card {
+            position: absolute; background: var(--white); padding: 16px 24px;
+            border-radius: 16px; box-shadow: var(--shadow-xl); border: 1px solid var(--border);
+            display: flex; align-items: center; gap: 12px; z-index: 10;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        .fc-1 { top: -20px; right: -40px; animation-delay: 0s; }
+        .fc-2 { bottom: 40px; left: -60px; animation-delay: 1s; }
+        .fc-3 { top: 60%; right: -20px; animation-delay: 2s; }
+        
+        .float-card i { width: 32px; height: 32px; background: #EFF6FF; color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .float-card span { font-size: 14px; font-weight: 700; color: var(--navy); }
+
+        /* --- Sections General --- */
+        section { padding: 140px 0; position: relative; }
+        .section-header { text-align: center; max-width: 800px; margin: 0 auto 80px; }
+        .section-label { color: var(--primary); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 20px; display: block; }
+        .section-title { font-size: 42px; font-weight: 800; color: var(--navy); margin-bottom: 24px; letter-spacing: -0.02em; }
+        .section-desc { font-size: 18px; color: var(--text-muted); }
+
+        /* --- Leistungen --- */
+        #leistungen { background: var(--white); }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .service-card {
+            background: var(--bg); padding: 50px 40px; border-radius: var(--radius-lg);
+            border: 1px solid transparent; transition: var(--transition);
+        }
+        .service-card:hover {
+            background: var(--white); border-color: var(--primary);
+            box-shadow: var(--shadow-xl); transform: translateY(-10px);
+        }
+        .service-icon {
+            width: 64px; height: 64px; background: var(--white); color: var(--primary);
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 32px; font-size: 28px; box-shadow: var(--shadow);
+        }
+        .service-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 16px; color: var(--navy); }
+        .service-card p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+
+        /* --- Warum VLAS --- */
+        #warum { background: #F8FAFC; overflow: hidden; }
+        .warum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .warum-card {
+            background: var(--white); padding: 40px 30px; border-radius: var(--radius-md);
+            text-align: center; border: 1px solid var(--border); transition: var(--transition);
+        }
+        .warum-card:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+        .warum-card .icon { font-size: 40px; margin-bottom: 24px; display: block; }
+        .warum-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+        .warum-card p { font-size: 14px; color: var(--text-muted); }
+
+        /* --- Ablauf --- */
+        #ablauf { background: var(--white); border-bottom: 1px solid var(--border); }
+        .ablauf-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+        .step-item { position: relative; }
+        .step-num { font-size: 56px; font-weight: 900; color: #EFF6FF; margin-bottom: -15px; display: block; }
+        .step-item h4 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+        .step-item p { font-size: 15px; color: var(--text-muted); }
+
+        /* --- Referenzen --- */
+        #referenzen { background: linear-gradient(to bottom, #F8FAFC, #FFFFFF); }
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .testi-card {
+            background: var(--white); padding: 40px; border-radius: var(--radius-lg);
+            border: 1px solid var(--border); box-shadow: var(--shadow-xl);
+        }
+        .testi-text { font-size: 16px; font-style: italic; color: var(--text-main); margin-bottom: 32px; line-height: 1.8; }
+        .testi-author { display: flex; align-items: center; gap: 16px; }
+        .testi-author strong { font-size: 14px; font-weight: 800; color: var(--navy); display: block; }
+        .testi-author span { font-size: 12px; color: var(--text-muted); }
+
+        /* --- Kontakt Section --- */
+        #kontakt { background: #0F172A; color: var(--white); padding: 160px 0; overflow: hidden; }
+        #kontakt .container { display: grid; grid-template-columns: 1fr 1.3fr; gap: 100px; align-items: center; }
+        
+        .contact-text h2 { font-size: 48px; font-weight: 800; margin-bottom: 32px; color: white; }
+        .contact-text p { font-size: 20px; opacity: 0.7; margin-bottom: 60px; }
+        
+        .contact-details { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        .cd-item { display: flex; align-items: center; gap: 20px; }
+        .cd-icon { width: 56px; height: 56px; background: rgba(37, 99, 235, 0.1); color: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; border: 1px solid rgba(37, 99, 235, 0.2); }
+        .cd-text h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--primary-light); margin-bottom: 4px; }
+        .cd-text p { font-size: 20px; font-weight: 700; opacity: 1; margin: 0; }
+
+        .contact-form {
+            background: var(--white); padding: 60px; border-radius: 24px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.3); color: var(--navy);
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .form-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
+        .form-group label { font-size: 14px; font-weight: 700; color: var(--navy); }
+        .form-control {
+            padding: 18px 24px; background: var(--bg); border: 1px solid var(--border);
+            border-radius: 12px; font-family: inherit; font-size: 16px; transition: var(--transition);
+        }
+        .form-control:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
+        
+        .btn-submit {
+            width: 100%; padding: 22px; background: var(--primary); color: white;
+            border: none; border-radius: 12px; font-size: 18px; font-weight: 700;
+            cursor: pointer; transition: var(--transition);
+        }
+        .btn-submit:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        /* --- Footer --- */
+        footer { padding: 120px 0 60px; background: #0F172A; color: #94A3B8; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 80px; margin-bottom: 100px; }
+        .f-logo { font-size: 30px; font-weight: 800; color: white; margin-bottom: 30px; }
+        .f-logo span { color: var(--primary); }
+        .f-col h4 { font-size: 14px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 32px; }
+        .f-links { list-style: none; }
+        .f-links li { margin-bottom: 16px; }
+        .f-links a { color: #94A3B8; text-decoration: none; font-size: 15px; transition: var(--transition); }
+        .f-links a:hover { color: var(--primary); }
+        .f-bottom { padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; font-size: 13px; }
+
+        /* Responsive Fixes */
+        @media (max-width: 1200px) {
+            #hero .container, #kontakt .container { grid-template-columns: 1fr; gap: 80px; text-align: center; }
+            .hero-btns { justify-content: center; }
+            .hero-visual { max-width: 700px; margin: 0 auto; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .warum-grid { grid-template-columns: repeat(2, 1fr); }
+            .ablauf-container { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .services-grid, .warum-grid, .ablauf-container, .testi-grid, .footer-grid, .form-row { grid-template-columns: 1fr; }
+            #hero h1 { font-size: 38px; }
+            .contact-form { padding: 40px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="vlas_logo_clean_1778175920425.png" alt="VLAS Gebäudereinigung Logo">
+            </a>
+            <div class="nav-links">
+                <a href="#hero">Start</a>
+                <a href="#leistungen">Leistungen</a>
+                <a href="#warum">Vorteile</a>
+                <a href="#ablauf">Ablauf</a>
+                <a href="#kontakt" class="btn-nav">Angebot anfragen</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="glow-bg" style="top: -100px; left: -100px;"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-badge">Reinigungsservice für Karlsruhe & Umgebung</span>
+                    <h1>Höchste Sauberkeit.<br>Perfekt geplant.</h1>
+                    <p>Wir definieren Gebäudereinigung neu. Erstklassige Qualität für Büros, Praxen und Industrieobjekte – zuverlässig, pünktlich und transparent.</p>
+                    <div class="hero-btns">
+                        <a href="#kontakt" class="btn-primary">Angebot anfordern</a>
+                        <a href="#leistungen" class="btn-secondary">Unsere Leistungen</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581578731522-658241010474?q=80&w=2070&auto=format&fit=crop" alt="Professionelle Reinigung">
+                    </div>
+                    <!-- Schwebende Info-Karten -->
+                    <div class="float-card fc-1">
+                        <i>✓</i>
+                        <span>Kostenlose Besichtigung</span>
+                    </div>
+                    <div class="float-card fc-2">
+                        <i>⏱</i>
+                        <span>48h Angebot</span>
+                    </div>
+                    <div class="float-card fc-3">
+                        <i>★</i>
+                        <span>Geprüfte Qualität</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leistungen -->
+        <section id="leistungen">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Unsere Expertise</span>
+                    <h2 class="section-title">Maßgeschneiderte Lösungen.</h2>
+                    <p class="section-desc">Wir bieten professionelle Reinigungsdienstleistungen für jeden Bedarf – individuell auf Ihr Objekt abgestimmt.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h3>Büroreinigung</h3>
+                        <p>Ein produktives Umfeld beginnt bei der Sauberkeit. Wir pflegen Ihre Büroräume täglich mit höchster Präzision.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🧼</div>
+                        <h3>Unterhaltsreinigung</h3>
+                        <p>Regelmäßige Pflege für den langfristigen Werterhalt Ihrer Immobilie – flexibel und diskret.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">✨</div>
+                        <h3>Glasreinigung</h3>
+                        <p>Streifenfreie Sauberkeit für alle Glasflächen. Unser Team sorgt für glasklare Aussichten an jeder Fassade.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>Treppenhausreinigung</h3>
+                        <p>Der erste Eindruck zählt. Wir sorgen für makellose Treppenhäuser und Eingangsbereiche.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💎</div>
+                        <h3>Grundreinigung</h3>
+                        <p>Intensive Tiefenreinigung zur Beseitigung hartnäckiger Verschmutzungen – für Böden wie neu.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏗️</div>
+                        <h3>Fassadenreinigung</h3>
+                        <p>Schutz und Werterhalt durch professionelle Reinigung Ihrer Außenfassaden gegen Umwelteinflüsse.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vorteile (Warum VLAS) -->
+        <section id="warum">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Warum VLAS</span>
+                    <h2 class="section-title">Qualität, die überzeugt.</h2>
+                </div>
+                <div class="warum-grid">
+                    <div class="warum-card">
+                        <span class="icon">🛡️</span>
+                        <h4>Geprüftes Personal</h4>
+                        <p>Sorgfältig ausgewähltes und geschultes Team für Ihre Sicherheit.</p>
+                    </div>
+                    <div class="warum-card">
+                        <span class="icon">⏱️</span>
+                        <h4>Pünktlichkeit</h4>
+                        <p>Wir halten uns strikt an vereinbarte Termine – ohne Ausnahmen.</p>
+                    </div>
+                    <div class="warum-card">
+                        <span class="icon">💬</span>
+                        <h4>Transparenz</h4>
+                        <p>Keine versteckten Kosten. Klare Angebote und Dokumentation.</p>
+                    </div>
+                    <div class="warum-card">
+                        <span class="icon">🌿</span>
+                        <h4>Umweltbewusst</h4>
+                        <p>Nutzung moderner und ökologisch verträglicher Reinigungsmittel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ablauf -->
+        <section id="ablauf">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Der Prozess</span>
+                    <h2 class="section-title">Einfach zum Ergebnis.</h2>
+                </div>
+                <div class="ablauf-container">
+                    <div class="step-item">
+                        <span class="step-num">01</span>
+                        <h4>Besichtigung</h4>
+                        <p>Wir analysieren Ihr Objekt vor Ort und besprechen Details.</p>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-num">02</span>
+                        <h4>Angebot</h4>
+                        <p>Sie erhalten ein maßgeschneidertes Festpreis-Angebot innerhalb von 48h.</p>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-num">03</span>
+                        <h4>Reinigung</h4>
+                        <p>Unser Team führt die Arbeiten pünktlich und professionell aus.</p>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-num">04</span>
+                        <h4>Abnahme</h4>
+                        <p>Gemeinsame Kontrolle für Ihre 100% Zufriedenheit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Referenzen -->
+        <section id="referenzen">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Kundenstimmen</span>
+                    <h2 class="section-title">Vertrauen ist unser Fundament.</h2>
+                </div>
+                <div class="testi-grid">
+                    <div class="testi-card">
+                        <p class="testi-text">"VLAS ist seit Jahren unser Partner für die Büroreinigung. Die Zuverlässigkeit und Qualität sind ungeschlagen in Karlsruhe."</p>
+                        <div class="testi-author">
+                            <div>
+                                <strong>Michael Weber</strong>
+                                <span>Geschäftsführer B2B Center</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <p class="testi-text">"Die Glasreinigung an unserer Fassade war ein voller Erfolg. Das Team arbeitet professionell und extrem gründlich."</p>
+                        <div class="testi-author">
+                            <div>
+                                <strong>Anna Schmidt</strong>
+                                <span>Bereitsleitung Klinik Süd</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <p class="testi-text">"Hervorragende Kommunikation und ein faires Preis-Leistungs-Verhältnis. Wir können VLAS uneingeschränkt empfehlen."</p>
+                        <div class="testi-author">
+                            <div>
+                                <strong>Thomas Yilmaz</strong>
+                                <span>Inhaber Autohaus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt Section (Dark & Dominant) -->
+        <section id="kontakt">
+            <div class="glow-bg" style="bottom: -200px; right: -100px; background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);"></div>
+            <div class="container">
+                <div class="contact-text">
+                    <h2>Bereit für makellose<br>Sauberkeit?</h2>
+                    <p>Kontaktieren Sie uns jetzt für eine unverbindliche Beratung und ein Angebot für Ihr Objekt.</p>
+                    <div class="contact-details">
+                        <div class="cd-item">
+                            <div class="cd-icon">📞</div>
+                            <div class="cd-text">
+                                <h4>Telefon</h4>
+                                <p>+49 721 123 456 78</p>
+                            </div>
+                        </div>
+                        <div class="cd-item">
+                            <div class="cd-icon">📧</div>
+                            <div class="cd-text">
+                                <h4>E-Mail</h4>
+                                <p>info@vlas-reinigung.de</p>
+                            </div>
+                        </div>
+                        <div class="cd-item">
+                            <div class="cd-icon">📍</div>
+                            <div class="cd-text">
+                                <h4>Region</h4>
+                                <p>Karlsruhe & Umgebung</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="vlasContact">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Name *</label>
+                                <input type="text" class="form-control" placeholder="Ihr Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Unternehmen</label>
+                                <input type="text" class="form-control" placeholder="Firma">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>E-Mail Adresse *</label>
+                            <input type="email" class="form-control" placeholder="beispiel@mail.de" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nachricht</label>
+                            <textarea class="form-control" rows="4" placeholder="Wie können wir helfen?"></textarea>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-bottom: 40px; align-items: flex-start;">
+                            <input type="checkbox" required style="margin-top: 5px;">
+                            <label style="font-size: 13px; color: var(--text-muted);">Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzerklärung zu. *</label>
+                        </div>
+                        <button type="submit" class="btn-submit">Unverbindlich anfragen</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="f-col">
+                    <a href="#" class="logo" style="margin-bottom: 24px; filter: brightness(0) invert(1);">
+                        <img src="vlas_logo_clean_1778175920425.png" alt="VLAS Gebäudereinigung Logo">
+                    </a>
+                    <p>Premium Gebäudereinigung in Karlsruhe. Wir schaffen Räume des Erfolgs durch Sauberkeit und Verlässlichkeit.</p>
+                </div>
+                <div class="f-col">
+                    <h4>Leistungen</h4>
+                    <ul class="f-links">
+                        <li><a href="#leistungen">Büroreinigung</a></li>
+                        <li><a href="#leistungen">Glasreinigung</a></li>
+                        <li><a href="#leistungen">Unterhaltsreinigung</a></li>
+                        <li><a href="#leistungen">Grundreinigung</a></li>
+                    </ul>
+                </div>
+                <div class="f-col">
+                    <h4>Unternehmen</h4>
+                    <ul class="f-links">
+                        <li><a href="#">Über uns</a></li>
+                        <li><a href="#ablauf">Unser Prozess</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="f-col">
+                    <h4>Rechtliches</h4>
+                    <ul class="f-links">
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="f-bottom">
+                <p>© 2025 VLAS GEBÄUDEREINIGUNG. Alle Rechte vorbehalten.</p>
+                <p>Designed for Quality</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Form Submit
+        document.getElementById('vlasContact').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
