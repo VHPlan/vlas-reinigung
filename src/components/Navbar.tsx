@@ -85,7 +85,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4 flex-shrink-0">
             <Link 
               href="/kontakt"
-              className="px-8 py-3 bg-[#0047AB] text-white text-[11px] font-black uppercase tracking-widest rounded-lg hover:bg-blue-800 transition-all shadow-md whitespace-nowrap"
+              className="px-6 py-3.5 bg-[#0047AB] text-white text-[13px] font-black uppercase tracking-wider rounded-lg hover:bg-blue-800 transition-all shadow-md whitespace-nowrap"
             >
               Angebot anfordern
             </Link>
@@ -94,10 +94,10 @@ export default function Navbar() {
               href="https://wa.me/4917655700551?text=Hallo%20VLAS%20Geb%C3%A4udereinigung%2C%20ich%20h%C3%A4tte%20gerne%20weitere%20Informationen."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-[#25D366] text-white text-[11px] font-black uppercase tracking-widest rounded-lg hover:bg-[#128C7E] transition-all shadow-md whitespace-nowrap flex items-center gap-2"
+              className="px-6 py-3.5 bg-[#25D366] text-white text-[13px] font-black uppercase tracking-wider rounded-lg hover:bg-[#128C7E] transition-all shadow-md whitespace-nowrap flex items-center gap-2"
               aria-label="Chat auf WhatsApp"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
               WHATSAPP
             </a>
           </div>
