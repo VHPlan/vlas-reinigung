@@ -61,9 +61,9 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
 
     // --- Nodemailer transport (hostico.ro SMTP) ---
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: true, // SSL port 465
+      host: "glc42.hostico.ro",
+      port: 465,
+      secure: true, // SSL
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
