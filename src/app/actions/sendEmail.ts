@@ -59,9 +59,11 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
       return { success: false, message: "Bitte geben Sie eine gültige E-Mail-Adresse ein." };
     }
 
-    // --- Nodemailer transport ---
+    // --- Nodemailer transport (hostico.ro SMTP) ---
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: true, // SSL port 465
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
@@ -114,8 +116,7 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
 
     await transporter.sendMail({
       from: `VLAS Website <${process.env.SMTP_USER}>`,
-      // TODO: schimba la "info@vlas-reinigung.de" dupa ce setezi forwarding in cPanel
-      to: process.env.SMTP_USER as string,
+      to: "info@vlas-reinigung.de",
       replyTo: email,
       subject,
       html,
