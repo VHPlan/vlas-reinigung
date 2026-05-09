@@ -9,8 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.vlas-reinigung.de/referenzen" },
 };
 
-// TODO: replace PLACEHOLDER with real Google Business Profile URL before launch
-const GOOGLE_PROFILE_URL = "https://g.page/r/PLACEHOLDER";
+const GOOGLE_PROFILE_URL = "https://g.page/r/CfA0094zg-tAEAE/review";
 
 export default function ReferenzenPage() {
   const industries = [

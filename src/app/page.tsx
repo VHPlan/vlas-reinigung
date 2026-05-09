@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck, Clock, Building2, Droplets, Sparkles, PhoneCall, Star, Users, ExternalLink, ChevronDown, MapPin } from "lucide-react";
 import Link from "next/link";
 
-// TODO: replace PLACEHOLDER with real Google Business Profile URL before launch
-const GOOGLE_PROFILE_URL = "https://g.page/r/PLACEHOLDER";
+const GOOGLE_PROFILE_URL = "https://g.page/r/CfA0094zg-tAEAE/review";
 
 const faqTeaser = [
   {
