@@ -37,26 +37,28 @@ export default function ReferenzenPage() {
 
   const testimonials = [
     {
-      quote:
-        "Wir haben lange nach einem zuverlässigen Partner gesucht. VLAS überzeugt durch Pünktlichkeit, extreme Gründlichkeit und sehr freundliches Personal. Die beste Entscheidung für unser Bürogebäude.",
-      author: "Michael S.",
-      role: "Facility Manager",
-      initial: "M",
-      isPlaceholder: false,
+      quote: "Das Team mit Alex war schon einige Male bei mir und ich bin rundum zufrieden. Sehr zuverlässig, sehr saubere Arbeit zu einem fairen Preis. 100%ige Weiterempfehlung!",
+      author: "Christiane Roetzel",
+      role: "Google Bewertung",
+      initial: "C",
     },
     {
-      quote: "[Platzhalter – echte Google-Bewertung folgt]", // TODO: replace with real Google review before launch
-      author: "[Name]",
-      role: "[Branche]",
-      initial: "?",
-      isPlaceholder: true,
+      quote: "Das Team war schon mehrfach bei uns und unseren Freunden. Wir waren alle immer sehr zufrieden. Es wurde sauber und professionell gearbeitet. Auch preislich ist es top.",
+      author: "Pascal Kurz",
+      role: "Google Bewertung",
+      initial: "P",
     },
     {
-      quote: "[Platzhalter – echte Google-Bewertung folgt]", // TODO: replace with real Google review before launch
-      author: "[Name]",
-      role: "[Branche]",
-      initial: "?",
-      isPlaceholder: true,
+      quote: "Der beste in Karlsruhe, gerne wieder!",
+      author: "Rone Tahlo",
+      role: "Google Bewertung",
+      initial: "R",
+    },
+    {
+      quote: "Alles Top, und wie besprochen....gerne wieder.",
+      author: "Dieter Lehmann",
+      role: "Google Bewertung",
+      initial: "D",
     },
   ];
 
@@ -117,11 +119,11 @@ export default function ReferenzenPage() {
       <section className="bg-slate-50 py-24 border-y border-slate-100 mb-24">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <h2 className="text-3xl font-black text-slate-800 tracking-tight mb-12 text-center">Kundenstimmen</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className={`bg-white p-10 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden ${t.isPlaceholder ? "opacity-60" : ""}`}
+                className="bg-white p-10 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden"
               >
                 <div className="flex gap-1 text-[#0047AB] mb-6">
                   {[1, 2, 3, 4, 5].map((s) => (
