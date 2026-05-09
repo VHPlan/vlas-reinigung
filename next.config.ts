@@ -46,7 +46,16 @@ const nextConfig: NextConfig = {
         ]
       }
     ]
-  }
+  },
+  async redirects() {
+    return [
+      {
+        source: '/ablauf',
+        destination: '/',
+        permanent: true, // 301 redirect
+      },
+    ];
+  },
 };
 
 export default nextConfig;
