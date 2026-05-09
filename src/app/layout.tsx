@@ -7,6 +7,7 @@ import ClientFeatures from "@/components/ClientFeatures";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import CookieBanner from "@/components/CookieBanner";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -128,6 +129,7 @@ export default function RootLayout({
         <WhatsAppButton />
         <MobileCtaBar />
         <CookieBanner />
+        <GoogleAnalytics />
       </body>
     </html>
   );

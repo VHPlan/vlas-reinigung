@@ -34,11 +34,11 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "img-src 'self' data: https://images.unsplash.com https://source.unsplash.com https://maps.gstatic.com https://maps.googleapis.com",
+              "img-src 'self' data: https://images.unsplash.com https://source.unsplash.com https://maps.gstatic.com https://maps.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com",
               "font-src 'self' data: https://fonts.gstatic.com",
-              "connect-src 'self'",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
               // Allow Google Maps iframes for Einsatzgebiet and Kontakt pages
               "frame-src https://maps.google.com https://www.google.com https://maps.googleapis.com",
             ].join('; ')
