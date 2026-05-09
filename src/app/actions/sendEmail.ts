@@ -114,7 +114,8 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
 
     await transporter.sendMail({
       from: `VLAS Website <${process.env.SMTP_USER}>`,
-      to: ["info@vlas-reinigung.de", process.env.SMTP_USER as string],
+      // TODO: schimba la "info@vlas-reinigung.de" dupa ce setezi forwarding in cPanel
+      to: process.env.SMTP_USER as string,
       replyTo: email,
       subject,
       html,
