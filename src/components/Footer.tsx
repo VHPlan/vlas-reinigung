@@ -21,7 +21,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-xs text-slate-500 font-bold leading-relaxed max-w-[250px] mb-6">
-              Ihr zuverlässiger Partner für professionelle Sauberkeit und Werterhalt in Karlsruhe und Umgebung.
+              VLAS Gebäudereinigung und Service – Ihr zuverlässiger Partner für professionelle Sauberkeit in Karlsruhe und Umgebung.
             </p>
           </div>
 
@@ -29,10 +29,12 @@ export default function Footer() {
           <div>
             <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-900 mb-6">Unsere Leistungen</h4>
             <ul className="space-y-3">
-              <li><Link href="/leistungen" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Unterhaltsreinigung</Link></li>
-              <li><Link href="/leistungen" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Glas- & Fassadenreinigung</Link></li>
-              <li><Link href="/leistungen" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Baureinigung</Link></li>
-              <li><Link href="/leistungen" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Industriereinigung</Link></li>
+              <li><Link href="/leistungen/unterhaltsreinigung-karlsruhe" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Unterhaltsreinigung</Link></li>
+              <li><Link href="/leistungen/glasreinigung-karlsruhe" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Glasreinigung</Link></li>
+              <li><Link href="/leistungen/baureinigung-karlsruhe" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Baureinigung</Link></li>
+              <li><Link href="/leistungen/industriereinigung-karlsruhe" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Industriereinigung</Link></li>
+              <li><Link href="/leistungen/teppichreinigung-karlsruhe" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Teppichreinigung</Link></li>
+              <li><Link href="/einsatzgebiet" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Einsatzgebiet</Link></li>
               <li>
                 <Link href="/leistungen" className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-[#0047AB] hover:text-blue-800 transition-colors mt-2">
                   Alle ansehen <ArrowUpRight size={12} />
@@ -47,7 +49,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-slate-400 mt-0.5 flex-shrink-0" />
-                <span className="text-xs font-bold text-slate-500 leading-relaxed">VLAS Gebäudereinigung<br/>Königsberger Str. 4D<br/>76139 Karlsruhe</span>
+                <span className="text-xs font-bold text-slate-500 leading-relaxed">VLAS Gebäudereinigung und Service<br/>Königsberger Str. 4D<br/>76139 Karlsruhe</span>
               </li>
               <li>
                 <a href="tel:+4917655700551" className="flex items-center gap-3 group">
@@ -61,14 +63,18 @@ export default function Footer() {
                   <span className="text-xs font-bold text-slate-500 group-hover:text-[#0047AB] transition-colors">info@vlas-reinigung.de</span>
                 </a>
               </li>
+              <li className="text-xs font-bold text-slate-400 pt-1">Mo–Fr 08:00–18:00 Uhr</li>
             </ul>
           </div>
 
-          {/* Rechtliches Column */}
+          {/* Unternehmen Column */}
           <div>
             <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-900 mb-6">Unternehmen</h4>
             <ul className="space-y-3">
               <li><Link href="/ueber-uns" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Über uns</Link></li>
+              <li><Link href="/referenzen" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Referenzen</Link></li>
+              <li><Link href="/faq" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">FAQ</Link></li>
+              <li><Link href="/ratgeber" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Ratgeber</Link></li>
               <li><Link href="/impressum" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Impressum</Link></li>
               <li><Link href="/datenschutz" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">Datenschutz</Link></li>
               <li><Link href="/agb" className="text-xs font-bold text-slate-500 hover:text-[#0047AB] transition-colors">AGB</Link></li>
@@ -80,7 +86,7 @@ export default function Footer() {
         {/* Footer Bottom Bar */}
         <div className="border-t border-slate-100 pt-6 flex flex-col items-center justify-center">
           <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-            © {new Date().getFullYear()} VLAS GEBÄUDEREINIGUNG
+            © {new Date().getFullYear()} VLAS GEBÄUDEREINIGUNG UND SERVICE
           </p>
         </div>
 

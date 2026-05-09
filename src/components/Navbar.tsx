@@ -27,6 +27,7 @@ export default function Navbar() {
     { name: "Startseite", href: "/" },
     { name: "Dienstleistungen", href: "/leistungen" },
     { name: "Referenzen", href: "/referenzen" },
+    { name: "Einsatzgebiet", href: "/einsatzgebiet" },
     { name: "Kontakt", href: "/kontakt" },
     { name: "Über uns", href: "/ueber-uns" },
   ];
@@ -58,7 +59,7 @@ export default function Navbar() {
         </Link>
 
         {/* 2. NAVIGATION + BUTTON CENTERED */}
-        <div className="hidden xl:flex items-center gap-12 flex-shrink-0">
+        <div className="hidden xl:flex items-center gap-10 flex-shrink-0">
           {navLinks.map((link) => (
             <div key={link.name} className="relative group flex-shrink-0">
               <Link 
@@ -107,6 +108,7 @@ export default function Navbar() {
         <button 
           className="xl:hidden absolute right-10 p-2 text-slate-800 flex-shrink-0"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Menü öffnen"
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -133,7 +135,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-10 border-t border-slate-100">
-                <Link href="/kontakt" className="block w-full py-5 bg-[#0047AB] text-white text-center rounded-xl font-bold uppercase tracking-widest text-xs">Angebot anfordern</Link>
+                <Link href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-5 bg-[#0047AB] text-white text-center rounded-xl font-bold uppercase tracking-widest text-xs">Angebot anfordern</Link>
               </div>
             </div>
           </motion.div>

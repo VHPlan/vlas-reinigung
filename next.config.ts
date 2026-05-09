@@ -4,7 +4,6 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Apply these headers to all routes in the application
         source: '/(.*)',
         headers: [
           {
@@ -32,10 +31,17 @@ const nextConfig: NextConfig = {
             value: 'origin-when-cross-origin'
           },
           {
-            // O Politică de Securitate a Conținutului (CSP) de bază. 
-            // Permite resurse din propriul domeniu, imagini din surse cunoscute și blochează scripturi malițioase.
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://source.unsplash.com; font-src 'self' data:; connect-src 'self';"
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "img-src 'self' data: https://images.unsplash.com https://source.unsplash.com https://maps.gstatic.com https://maps.googleapis.com",
+              "font-src 'self' data: https://fonts.gstatic.com",
+              "connect-src 'self'",
+              // Allow Google Maps iframes for Einsatzgebiet and Kontakt pages
+              "frame-src https://maps.google.com https://www.google.com https://maps.googleapis.com",
+            ].join('; ')
           }
         ]
       }

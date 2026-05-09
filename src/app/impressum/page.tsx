@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Impressum | VLAS Gebäudereinigung",
-  description: "Impressum und rechtliche Angaben der VLAS Gebäudereinigung.",
+  title: "Impressum | VLAS Gebäudereinigung und Service",
+  description: "Impressum und rechtliche Angaben der VLAS Gebäudereinigung und Service.",
+  alternates: { canonical: "https://www.vlas-reinigung.de/impressum" },
 };
 
 export default function ImpressumPage() {
@@ -17,7 +18,7 @@ export default function ImpressumPage() {
           <div>
             <h2 className="text-xl font-bold text-slate-800 mb-4">Angaben gemäß § 5 TMG</h2>
             <p>
-              VLAS Gebäudereinigung<br />
+              VLAS Gebäudereinigung und Service<br />
               Königsberger Str. 4D<br />
               76139 Karlsruhe
             </p>
@@ -32,15 +33,16 @@ export default function ImpressumPage() {
             <h2 className="text-xl font-bold text-slate-800 mb-4">Kontakt</h2>
             <p>
               Telefon: +49 (0) 176 55700551<br />
-              E-Mail: vlasalexandru@yahoo.com
+              E-Mail: info@vlas-reinigung.de
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-bold text-slate-800 mb-4">Umsatzsteuer-ID</h2>
+            <h2 className="text-xl font-bold text-slate-800 mb-4">Steuerliche Angaben</h2>
             <p>
+              Steuernummer: 35173/03496<br />
               Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-              [Wird noch nachgereicht / DE XXXXXXXX]
+              DE458723815
             </p>
           </div>
 
