@@ -114,7 +114,7 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
 
     await transporter.sendMail({
       from: `VLAS Website <${process.env.SMTP_USER}>`,
-      to: "info@vlas-reinigung.de",
+      to: ["info@vlas-reinigung.de", process.env.SMTP_USER as string],
       replyTo: email,
       subject,
       html,
