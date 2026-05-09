@@ -39,7 +39,7 @@ export default function DatenschutzPage() {
               Alexandru Vlas<br />
               Königsberger Str. 4D<br />
               76139 Karlsruhe<br />
-              E-Mail: vlasalexandru@yahoo.com
+              E-Mail: info@vlas-reinigung.de
             </p>
           </div>
 
