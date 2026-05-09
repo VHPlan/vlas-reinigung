@@ -130,11 +130,11 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
         "Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 48 Stunden bei Ihnen.",
     };
   } catch (error) {
-    const errMsg = error instanceof Error ? error.message : String(error);
-    console.error("Email send error:", errMsg);
+    console.error("Email send error:", error instanceof Error ? error.message : String(error));
     return {
       success: false,
-      message: `Fehler: ${errMsg}`,
+      message:
+        "Es gab einen Fehler beim Senden. Bitte versuchen Sie es später erneut oder rufen Sie uns an: 0176 55700551.",
     };
   }
 }
