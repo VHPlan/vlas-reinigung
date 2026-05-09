@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ClientFeatures from "@/components/ClientFeatures";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import MobileCtaBar from "@/components/MobileCtaBar";
+import CookieBanner from "@/components/CookieBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -126,6 +127,7 @@ export default function RootLayout({
         <ClientFeatures />
         <WhatsAppButton />
         <MobileCtaBar />
+        <CookieBanner />
       </body>
     </html>
   );
