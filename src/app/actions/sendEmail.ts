@@ -65,10 +65,12 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
       port: 465,
       secure: true, // SSL
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
+
+    const emailTo = process.env.EMAIL_TO || "info@vlas-reinigung.de";
 
     const subject = `Neue Anfrage: ${service} – ${name}`;
 
@@ -115,8 +117,8 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
     `;
 
     await transporter.sendMail({
-      from: `VLAS Website <${process.env.SMTP_USER}>`,
-      to: "info@vlas-reinigung.de",
+      from: `VLAS Website <${process.env.EMAIL_USER}>`,
+      to: emailTo,
       replyTo: email,
       subject,
       html,
