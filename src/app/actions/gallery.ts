@@ -72,10 +72,12 @@ export async function uploadImages(formData: FormData) {
 
     const updatedImages = [...newItems, ...currentImages];
     
-    // Salvăm lista actualizată înapoi în Cloud (suprascriem fișierul vechi)
+    // Salvăm lista actualizată înapoi în Cloud
     await put(METADATA_FILENAME, JSON.stringify(updatedImages, null, 2), {
       access: "public",
-      addRandomSuffix: false, // Păstrăm același nume pentru a-l găsi ușor
+      addRandomSuffix: false,
+      // @ts-ignore
+      allowOverwrite: true,
       contentType: "application/json",
     });
 
@@ -106,6 +108,8 @@ export async function deleteImage(id: string) {
     await put(METADATA_FILENAME, JSON.stringify(updatedImages, null, 2), {
       access: "public",
       addRandomSuffix: false,
+      // @ts-ignore
+      allowOverwrite: true,
       contentType: "application/json",
     });
 
