@@ -21,11 +21,8 @@ export default async function AdminGaleriePage() {
           </Link>
         </div>
 
-        <nav className="flex-1 p-6 space-y-2">
-          <Link href="/admin/galerie" className="flex items-center gap-3 px-4 py-3 bg-blue-50 text-[#0047AB] rounded-xl font-bold text-sm transition-all">
-            <LayoutDashboard size={18} /> Dashboard / Galerie
-          </Link>
-        </nav>
+        {/* Sidebar Navigation removed as it was redundant */}
+        <div className="flex-1" />
 
         <div className="p-6 border-t border-slate-50">
            <p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em] text-center">VLAS CMS v1.0</p>
