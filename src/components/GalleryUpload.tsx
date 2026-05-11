@@ -14,6 +14,7 @@ export default function GalleryUpload() {
     
     setIsUploading(true);
     let successCount = 0;
+    let lastError = "";
 
     try {
       const files = (e.currentTarget.elements.namedItem("files") as HTMLInputElement).files;
