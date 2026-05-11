@@ -27,6 +27,8 @@ export default function GalleryUpload() {
         const result = await uploadImages(singleFormData);
         if (result.success) {
           successCount += (result.count || 0);
+          // Mică pauză pentru a asigura consistența datelor în Cloud
+          await new Promise(resolve => setTimeout(resolve, 800));
         } else {
           console.error(`Error uploading file ${i}:`, result.error);
           lastError = result.error;

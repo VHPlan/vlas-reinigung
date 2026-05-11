@@ -30,7 +30,14 @@ export async function getGalleryImages(): Promise<GalleryItem[]> {
     
     if (!metadataBlob) return [];
 
-    const response = await fetch(metadataBlob.url, { cache: 'no-store' });
+    // Adăugăm un timestamp pentru a evita orice formă de cache la nivel de server/CDN
+    const response = await fetch(`${metadataBlob.url}?t=${Date.now()}`, { 
+      cache: 'no-store',
+      headers: {
+        'Pragma': 'no-cache',
+        'Cache-Control': 'no-cache'
+      }
+    });
     if (!response.ok) return [];
     
     const data = await response.json();
