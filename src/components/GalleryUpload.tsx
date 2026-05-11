@@ -14,12 +14,17 @@ export default function GalleryUpload() {
 
     try {
       const formData = new FormData(e.currentTarget);
-      await uploadImage(formData);
-      setPreview(null);
-      (e.target as HTMLFormElement).reset();
-      alert("Erfolgreich hochgeladen!");
+      const result = await uploadImage(formData);
+      
+      if (result.success) {
+        setPreview(null);
+        (e.target as HTMLFormElement).reset();
+        alert("Success! Fișierul a fost salvat și adăugat în galerie.");
+      } else {
+        alert("Eroare: " + (result.error || "Nu s-a putut salva fișierul."));
+      }
     } catch (error) {
-      alert("Fehler beim Hochladen!");
+      alert("Eroare de conexiune sau permisiuni!");
     } finally {
       setIsUploading(false);
     }
