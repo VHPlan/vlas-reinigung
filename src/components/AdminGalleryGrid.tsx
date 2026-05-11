@@ -41,7 +41,7 @@ export default function AdminGalleryGrid({ initialImages }: { initialImages: Gal
               </button>
               
               <form action={async () => {
-                if (confirm("Möchten Sie dieses Bild wirklich löschen?")) {
+                if (confirm("Möchten Sie dieses Medium wirklich löschen?")) {
                   await deleteImage(item.id);
                   window.location.reload();
                 }

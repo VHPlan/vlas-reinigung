@@ -28,19 +28,20 @@ export default function GalleryUpload() {
           successCount += (result.count || 0);
         } else {
           console.error(`Error uploading file ${i}:`, result.error);
+          lastError = result.error;
         }
       }
       
       if (successCount > 0) {
         setPreviews([]);
         (e.target as HTMLFormElement).reset();
-        alert(`Success! ${successCount} fișiere au fost salvate.`);
+        alert(`Erfolg! ${successCount} Datei(en) wurden gespeichert.`);
       } else {
-        alert("Nicio poză nu a putut fi salvată. Verifică mărimea fișierelor.");
+        alert("Fehler: " + (lastError || "Die Dateien konnten nuicht gespeichert werden. Bitte prüfen Sie die Dateigröße."));
       }
     } catch (error: any) {
       console.error("Client upload error:", error);
-      alert("Eroare: " + (error.message || "Eroare de conexiune sau permisiuni!"));
+      alert("Verbindungsfehler: " + (error.message || "Server nicht erreichbar."));
     } finally {
       setIsUploading(false);
     }
@@ -60,7 +61,7 @@ export default function GalleryUpload() {
 
   return (
     <div className="bg-white rounded-[40px] p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-50 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-black text-slate-900 mb-8 flex items-center justify-center gap-3">
+      <h2 className="text-2xl font-black text-slate-900 mb-8 flex items-center justify-center gap-3 text-center">
         <div className="p-3 bg-blue-50 text-[#0047AB] rounded-2xl">
           <Upload size={24} />
         </div>
@@ -70,7 +71,7 @@ export default function GalleryUpload() {
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="space-y-4">
           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 block text-center">
-            Wählen Sie ein sau mehrere Dateie(n) aus
+            Wählen Sie ein oder mehrere Dateie(n) aus
           </label>
           
           <div className="relative min-h-[300px] border-2 border-dashed border-slate-100 rounded-[32px] p-8 hover:border-[#0047AB] hover:bg-blue-50/30 transition-all group flex items-center justify-center">
@@ -118,7 +119,7 @@ export default function GalleryUpload() {
         >
           {isUploading ? (
             <>
-              <Loader2 className="animate-spin" size={18} /> Încărcare ({previews.length} fișiere)...
+              <Loader2 className="animate-spin" size={18} /> Wird hochgeladen ({previews.length} Dateien)...
             </>
           ) : (
             <>
