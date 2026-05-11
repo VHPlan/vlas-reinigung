@@ -13,17 +13,30 @@ export default function GalleryUpload() {
     if (previews.length === 0) return;
     
     setIsUploading(true);
+    let successCount = 0;
 
     try {
-      const formData = new FormData(e.currentTarget);
-      const result = await uploadImages(formData);
+      const files = (e.currentTarget.elements.namedItem("files") as HTMLInputElement).files;
+      if (!files) return;
+
+      for (let i = 0; i < files.length; i++) {
+        const singleFormData = new FormData();
+        singleFormData.append("files", files[i]);
+        
+        const result = await uploadImages(singleFormData);
+        if (result.success) {
+          successCount += (result.count || 0);
+        } else {
+          console.error(`Error uploading file ${i}:`, result.error);
+        }
+      }
       
-      if (result.success) {
+      if (successCount > 0) {
         setPreviews([]);
         (e.target as HTMLFormElement).reset();
-        alert(`Success! ${result.count} fișiere au fost salvate.`);
+        alert(`Success! ${successCount} fișiere au fost salvate.`);
       } else {
-        alert("Eroare: " + (result.error || "Nu s-a putut salva fișierul."));
+        alert("Nicio poză nu a putut fi salvată. Verifică mărimea fișierelor.");
       }
     } catch (error: any) {
       console.error("Client upload error:", error);
