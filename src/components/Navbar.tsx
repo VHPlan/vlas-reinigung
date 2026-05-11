@@ -202,7 +202,7 @@ export default function Navbar({ initialIsLoggedIn = false }: { initialIsLoggedI
                   key={link.name} 
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-3xl font-black text-slate-800 uppercase tracking-tighter whitespace-nowrap"
+                  className="block text-2xl font-black text-slate-800 uppercase tracking-tight leading-none"
                 >
                   {link.name}
                 </Link>

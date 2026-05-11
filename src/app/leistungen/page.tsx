@@ -97,8 +97,8 @@ export default function LeistungenPage() {
     <main className="bg-white min-h-screen pt-40 pb-20">
       
       {/* HEADER SECTION */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-12 mb-20 text-center">
-        <h1 className="text-5xl lg:text-6xl font-black text-[#0047AB] tracking-tighter uppercase mb-6">
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-12 mb-16 text-center">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0047AB] tracking-tighter uppercase mb-6 leading-tight">
           Unsere Leistungen
         </h1>
         <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">

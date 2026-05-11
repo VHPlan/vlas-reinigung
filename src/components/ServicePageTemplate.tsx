@@ -44,11 +44,11 @@ export default function ServicePageTemplate({
       </nav>
 
       {/* HERO */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-12 mb-20">
-        <h1 className="text-4xl lg:text-6xl font-black text-[#0047AB] tracking-tighter uppercase mb-6">
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-12 mb-16 text-center">
+        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-[#0047AB] tracking-tighter uppercase mb-6 leading-[1.1] break-words">
           {h1}
         </h1>
-        <p className="text-xl text-slate-600 max-w-3xl font-medium leading-relaxed">{intro}</p>
+        <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">{intro}</p>
       </section>
 
       {/* CONTENT SECTIONS */}

@@ -35,7 +35,7 @@ export default async function GaleriePage() {
         <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-50 text-[#0047AB] rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 shadow-sm">
           <Camera size={14} /> Unser Portfolio
         </div>
-        <h1 className="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter mb-10 leading-[1.1]">
+        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter mb-10 leading-[1.1]">
           Ein Blick auf unsere <br /> <span className="text-[#0047AB]">exzellente Arbeit.</span>
         </h1>
         <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
