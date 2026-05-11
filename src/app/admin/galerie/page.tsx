@@ -43,27 +43,22 @@ export default async function AdminGaleriePage() {
           </div>
         </header>
 
-        <div className="max-w-[1200px] mx-auto p-10">
-          {/* UPLOAD SECTION */}
+        <div className="p-10 max-w-[1200px] mx-auto">
+          {/* UPLOAD SECTION - SIMPLE & CENTERED */}
           <div className="mb-20 text-center">
-             <div className="mb-10">
-                <h3 className="text-3xl font-black text-slate-900 tracking-tighter uppercase mb-3">VLAS Media Management</h3>
-                <div className="h-1 w-20 bg-[#0047AB] mx-auto mb-6 rounded-full" />
-                <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">
-                  Îmbogățește-ți portofoliul cu noi realizări de excepție. Încărcările tale vor apărea instantaneu în galeria publică.
-                </p>
+             <div className="mb-8">
+                <h3 className="text-3xl font-black text-slate-900 tracking-tighter uppercase mb-2">VLAS Media Management</h3>
+                <p className="text-sm text-slate-500 font-medium">Îmbogățește-ți portofoliul cu noi realizări de excepție.</p>
              </div>
-             <div className="bg-white p-10 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100">
-                <GalleryUpload />
-             </div>
+             <GalleryUpload />
           </div>
 
           {/* MEDIA GRID */}
           <div>
-            <div className="flex items-center justify-between mb-10 border-b border-slate-100 pb-6">
+            <div className="flex items-center justify-between mb-8 border-b border-slate-100 pb-4">
                <h3 className="text-xl font-black text-slate-800 uppercase tracking-widest">Mediathek</h3>
                <div className="flex gap-2">
-                  <span className="px-4 py-2 bg-[#0047AB] rounded-lg text-[10px] font-black text-white uppercase tracking-widest shadow-lg shadow-blue-900/20">Total ({images.length})</span>
+                  <span className="px-3 py-1 bg-white border border-slate-200 rounded-lg text-[10px] font-bold text-slate-500 uppercase tracking-widest">Total ({images.length})</span>
                </div>
             </div>
 
