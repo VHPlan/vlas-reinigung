@@ -17,9 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/leistungen/grundreinigung-karlsruhe`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/leistungen/treppenhausreinigung-karlsruhe`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/leistungen/teppichreinigung-karlsruhe`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/leistungen/steinreinigung-karlsruhe`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/leistungen/fassadenreinigung-karlsruhe`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/leistungen/hausmeisterservice-karlsruhe`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
 
     // Core pages
+    { url: `${baseUrl}/galerie`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/referenzen`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/kontakt`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/ueber-uns`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },

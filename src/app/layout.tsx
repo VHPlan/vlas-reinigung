@@ -8,6 +8,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import AdminShortcut from "@/components/AdminShortcut";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -108,11 +109,16 @@ const localBusinessSchema = {
   },
 };
 
-export default function RootLayout({
+import { cookies } from "next/headers";
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const isLoggedIn = cookieStore.get("admin_session")?.value === "authenticated";
+
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
@@ -122,7 +128,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        <Navbar />
+        <Navbar initialIsLoggedIn={isLoggedIn} />
         {children}
         <Footer />
         <ClientFeatures />
@@ -130,6 +136,7 @@ export default function RootLayout({
         <MobileCtaBar />
         <CookieBanner />
         <GoogleAnalytics />
+        <AdminShortcut />
       </body>
     </html>
   );

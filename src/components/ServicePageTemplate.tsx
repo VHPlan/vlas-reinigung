@@ -113,8 +113,8 @@ export default function ServicePageTemplate({
 
       {/* RELATED SERVICES */}
       <section className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <h2 className="text-xl font-black text-slate-800 mb-6">Das könnte Sie auch interessieren</h2>
-        <div className="flex flex-wrap gap-4">
+        <h2 className="text-xl font-black text-slate-800 mb-6 text-center">Das könnte Sie auch interessieren</h2>
+        <div className="flex flex-wrap justify-center gap-4">
           {related.map((r) => (
             <Link key={r.href} href={r.href} className="inline-flex items-center gap-2 px-6 py-3 bg-slate-50 border border-slate-200 text-slate-700 font-bold text-sm rounded-xl hover:bg-[#0047AB] hover:text-white hover:border-[#0047AB] transition-all">
               {r.title} <ArrowRight size={14} />

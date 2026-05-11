@@ -67,6 +67,22 @@ const services = [
     icon: <Layers size={36} className="text-[#0047AB]" />,
   },
   {
+    slug: "steinreinigung-karlsruhe",
+    title: "Steinreinigung",
+    subtitle: "Porentiefe Sauberkeit für Ihre Außenbereiche",
+    description:
+      "Professionelle Reinigung von Terrassen, Gehwegen und Mauern. Wir entfernen Moos, Algen und hartnäckige Flecken von allen Steinarten.",
+    icon: <Layers size={36} className="text-[#0047AB]" />,
+  },
+  {
+    slug: "fassadenreinigung-karlsruhe",
+    title: "Fassadenreinigung",
+    subtitle: "Strahlender Glanz und Werterhalt für Ihr Gebäude",
+    description:
+      "Schonende und effektive Entfernung von Verschmutzungen an Außenfassaden. Schützt Ihre Immobilie vor Witterungseinflüssen.",
+    icon: <Building2 size={36} className="text-[#0047AB]" />,
+  },
+  {
     slug: "hausmeisterservice-karlsruhe",
     title: "Hausmeisterservice",
     subtitle: "Alles aus einer Hand für Ihre Immobilie",
