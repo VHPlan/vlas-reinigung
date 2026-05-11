@@ -44,11 +44,18 @@ export default async function AdminGaleriePage() {
         </header>
 
         <div className="p-10 max-w-[1200px] mx-auto">
-          {/* UPLOAD SECTION - SIMPLE & CENTERED */}
+          {/* UPLOAD SECTION - CENTERED & PREMIUM */}
           <div className="mb-20 text-center">
              <div className="mb-8">
-                <h3 className="text-3xl font-black text-slate-900 tracking-tighter uppercase mb-2">VLAS Media Management</h3>
-                <p className="text-sm text-slate-500 font-medium">Îmbogățește-ți portofoliul cu noi realizări de excepție.</p>
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-50 text-[#0047AB] rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 shadow-sm">
+                  <LayoutDashboard size={14} /> Admin Bereich
+                </div>
+                <h1 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase mb-4 leading-tight">
+                  Medien <span className="text-[#0047AB]">Verwaltung</span>
+                </h1>
+                <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
+                  Verwalten Sie Ihre Projektergebnisse und aktualisieren Sie Ihr Portfolio für Ihre Kunden.
+                </p>
              </div>
              <GalleryUpload />
           </div>
@@ -58,7 +65,7 @@ export default async function AdminGaleriePage() {
             <div className="flex items-center justify-between mb-8 border-b border-slate-100 pb-4">
                <h3 className="text-xl font-black text-slate-800 uppercase tracking-widest">Mediathek</h3>
                <div className="flex gap-2">
-                  <span className="px-3 py-1 bg-white border border-slate-200 rounded-lg text-[10px] font-bold text-slate-500 uppercase tracking-widest">Total ({images.length})</span>
+                  <span className="px-3 py-1 bg-[#0047AB] rounded-lg text-[10px] font-black text-white uppercase tracking-widest">Gesamt ({images.length})</span>
                </div>
             </div>
 
