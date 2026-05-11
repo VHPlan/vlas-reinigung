@@ -24,10 +24,11 @@ export async function getGalleryImages(): Promise<GalleryItem[]> {
     
     if (!metadataBlob) return [];
 
-    const response = await fetch(metadataBlob.url);
+    const response = await fetch(metadataBlob.url, { cache: 'no-store' });
     if (!response.ok) return [];
     
-    return await response.json();
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error("Error fetching gallery metadata:", error);
     return [];
