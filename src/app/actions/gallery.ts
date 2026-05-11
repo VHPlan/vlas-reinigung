@@ -18,6 +18,12 @@ export type GalleryItem = {
  */
 export async function getGalleryImages(): Promise<GalleryItem[]> {
   try {
+    // Verificăm dacă avem token-ul configurat (evităm crash local)
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.warn("Vercel Blob token not found. Gallery will be empty.");
+      return [];
+    }
+
     // Căutăm fișierul de metadate în listă
     const { blobs } = await list();
     const metadataBlob = blobs.find(b => b.pathname === METADATA_FILENAME);
