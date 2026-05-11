@@ -23,8 +23,9 @@ export default function GalleryUpload() {
       } else {
         alert("Eroare: " + (result.error || "Nu s-a putut salva fișierul."));
       }
-    } catch (error) {
-      alert("Eroare de conexiune sau permisiuni!");
+    } catch (error: any) {
+      console.error("Client upload error:", error);
+      alert("Eroare: " + (error.message || "Eroare de conexiune sau permisiuni!"));
     } finally {
       setIsUploading(false);
     }
