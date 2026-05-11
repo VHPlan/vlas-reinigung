@@ -25,7 +25,15 @@ export default function AdminGalleryGrid({ initialImages }: { initialImages: Gal
             {item.type === "image" ? (
               <img src={item.url} alt="" className="w-full h-full object-cover" onClick={() => setSelectedItem(item)} />
             ) : (
-              <video src={item.url} className="w-full h-full object-cover" muted onClick={() => setSelectedItem(item)} />
+              <video 
+                src={item.url} 
+                className="w-full h-full object-cover" 
+                muted 
+                autoPlay 
+                loop 
+                playsInline 
+                onClick={() => setSelectedItem(item)} 
+              />
             )}
             
             <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg text-[#0047AB] shadow-sm pointer-events-none">

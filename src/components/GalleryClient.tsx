@@ -82,8 +82,10 @@ export default function GalleryClient({ initialImages }: { initialImages: Galler
                     <video
                       src={img.url}
                       className="w-full h-full object-cover"
+                      autoPlay
                       muted
                       loop
+                      playsInline
                     />
                     <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-md p-3 rounded-2xl pointer-events-none group-hover:scale-110 transition-transform">
                        <Film className="text-white" size={24} />
@@ -141,6 +143,7 @@ export default function GalleryClient({ initialImages }: { initialImages: Galler
                   src={selectedItem.url} 
                   controls 
                   autoPlay
+                  playsInline
                   className="max-w-full max-h-[90vh] object-contain rounded-xl"
                 />
               )}
