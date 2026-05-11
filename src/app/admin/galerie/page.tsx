@@ -10,27 +10,10 @@ export default async function AdminGaleriePage() {
   const videoCount = images.filter(i => i.type === "video").length;
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC] flex">
+    <main className="min-h-screen bg-[#F8FAFC]">
       
-      {/* SIDEBAR */}
-      <aside className="w-72 bg-white border-r border-slate-200 hidden lg:flex flex-col fixed inset-y-0">
-        <div className="p-8 border-b border-slate-50">
-          <Link href="/" className="flex items-center gap-3">
-             <div className="text-2xl font-black tracking-tighter text-[#0047AB]">VLAS</div>
-             <div className="text-[8px] font-black uppercase tracking-widest text-slate-400">ADMIN</div>
-          </Link>
-        </div>
-
-        {/* Sidebar Navigation removed as it was redundant */}
-        <div className="flex-1" />
-
-        <div className="p-6 border-t border-slate-50">
-           <p className="text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em] text-center">VLAS CMS v1.0</p>
-        </div>
-      </aside>
-
-      {/* CONTENT AREA */}
-      <div className="flex-1 lg:ml-72 pb-20">
+      {/* CONTENT AREA - FULL WIDTH */}
+      <div className="w-full pb-20">
         
         {/* TOP HEADER */}
         <header className="h-20 bg-white/80 backdrop-blur-md border-b border-slate-100 flex items-center justify-between px-10 sticky top-0 z-50">
