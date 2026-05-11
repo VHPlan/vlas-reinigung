@@ -1,12 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GalleryItem } from "@/app/actions/gallery";
 import { motion, AnimatePresence } from "framer-motion";
-import { Image as ImageIcon, Film, LayoutGrid } from "lucide-react";
+import { Image as ImageIcon, Film, LayoutGrid, X, Maximize2 } from "lucide-react";
 
 export default function GalleryClient({ initialImages }: { initialImages: GalleryItem[] }) {
   const [filter, setFilter] = useState<"all" | "image" | "video">("all");
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+
+  // Close lightbox on escape key
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedItem(null);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
 
   const filteredImages = initialImages.filter((img) => {
     if (filter === "all") return true;
@@ -57,7 +67,8 @@ export default function GalleryClient({ initialImages }: { initialImages: Galler
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="group relative bg-white rounded-[40px] overflow-hidden shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover:shadow-[0_40px_80px_-30px_rgba(0,71,171,0.25)] transition-all duration-500 border border-slate-50"
+              onClick={() => setSelectedItem(img)}
+              className="group relative bg-white rounded-[40px] overflow-hidden shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover:shadow-[0_40px_80px_-30px_rgba(0,71,171,0.25)] transition-all duration-500 border border-slate-50 cursor-zoom-in"
             >
               <div className="aspect-[4/5] overflow-hidden bg-slate-50">
                 {img.type === "image" ? (
@@ -71,7 +82,6 @@ export default function GalleryClient({ initialImages }: { initialImages: Galler
                     <video
                       src={img.url}
                       className="w-full h-full object-cover"
-                      controls
                       muted
                       loop
                     />
@@ -82,14 +92,62 @@ export default function GalleryClient({ initialImages }: { initialImages: Galler
                 )}
               </div>
               
-              {/* Subtle hover indicator for images */}
-              {img.type === "image" && (
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0047AB]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-              )}
+              <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                 <div className="w-16 h-16 bg-white/20 backdrop-blur-xl border border-white/30 rounded-full flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-500">
+                    <Maximize2 className="text-white" size={32} />
+                 </div>
+              </div>
             </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {/* LIGHTBOX OVERLAY */}
+      <AnimatePresence>
+        {selectedItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-slate-950/95 z-[9999] flex items-center justify-center p-6 sm:p-20 overflow-hidden"
+            onClick={() => setSelectedItem(null)}
+          >
+            <button 
+              className="absolute top-10 right-10 p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors z-[10000]"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedItem(null);
+              }}
+            >
+              <X size={32} />
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-full max-h-full rounded-2xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {selectedItem.type === "image" ? (
+                <img 
+                  src={selectedItem.url} 
+                  alt="" 
+                  className="max-w-full max-h-[90vh] object-contain rounded-xl"
+                />
+              ) : (
+                <video 
+                  src={selectedItem.url} 
+                  controls 
+                  autoPlay
+                  className="max-w-full max-h-[90vh] object-contain rounded-xl"
+                />
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {filteredImages.length === 0 && (
         <div className="text-center py-40 bg-slate-50 rounded-[40px] border-2 border-dashed border-slate-200">

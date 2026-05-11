@@ -29,40 +29,47 @@ export async function getGalleryImages(): Promise<GalleryItem[]> {
   }
 }
 
-export async function uploadImage(formData: FormData) {
+export async function uploadImages(formData: FormData) {
   try {
     await ensureDirs();
-    const file = formData.get("file") as File;
+    const files = formData.getAll("files") as File[];
 
-    if (!file) {
-      return { success: false, error: "Keine Datei ausgewählt" };
+    if (!files || files.length === 0 || (files.length === 1 && files[0].size === 0)) {
+      return { success: false, error: "Keine Dateien ausgewählt" };
     }
 
-    const fileType = file.type.startsWith("video/") ? "video" : "image";
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // Generăm un nume unic
-    const filename = `${Date.now()}-${file.name.replace(/\s+/g, "-")}`;
-    const path = join(UPLOAD_DIR, filename);
-
-    await writeFile(path, buffer);
-
-    // Actualizăm JSON-ul
     const currentImages = await getGalleryImages();
-    const newItem: GalleryItem = {
-      id: Date.now().toString(),
-      url: `/images/gallery/${filename}`,
-      type: fileType,
-      createdAt: new Date().toISOString(),
-    };
+    const newItems: GalleryItem[] = [];
 
-    const updatedImages = [newItem, ...currentImages];
+    for (const file of files) {
+      if (file.size === 0) continue;
+
+      const fileType = file.type.startsWith("video/") ? "video" : "image";
+      const bytes = await file.arrayBuffer();
+      const buffer = Buffer.from(bytes);
+
+      // Generăm un nume unic
+      const filename = `${Date.now()}-${Math.random().toString(36).substring(2, 7)}-${file.name.replace(/\s+/g, "-")}`;
+      const path = join(UPLOAD_DIR, filename);
+
+      await writeFile(path, buffer);
+
+      const newItem: GalleryItem = {
+        id: (Date.now() + Math.random()).toString(),
+        url: `/images/gallery/${filename}`,
+        type: fileType,
+        createdAt: new Date().toISOString(),
+      };
+      
+      newItems.push(newItem);
+    }
+
+    const updatedImages = [...newItems, ...currentImages];
     await writeFile(DATA_FILE, JSON.stringify(updatedImages, null, 2));
 
     revalidatePath("/galerie");
     revalidatePath("/admin/galerie");
-    return { success: true };
+    return { success: true, count: newItems.length };
   } catch (error: any) {
     console.error("Upload error:", error);
     return { success: false, error: error.message };

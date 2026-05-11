@@ -3,6 +3,7 @@ import { logout } from "@/app/actions/auth";
 import GalleryUpload from "@/components/GalleryUpload";
 import { Trash2, Film, Image as ImageIcon, ArrowLeft, LogOut, LayoutDashboard, Settings, User } from "lucide-react";
 import Link from "next/link";
+import AdminGalleryGrid from "@/components/AdminGalleryGrid";
 
 export default async function AdminGaleriePage() {
   const images = await getGalleryImages();
@@ -62,7 +63,7 @@ export default async function AdminGaleriePage() {
 
           {/* MEDIA GRID */}
           <div>
-            <div className="flex items-center justify-between mb-8 border-b border-slate-100 pb-4">
+            <div className="flex items-center justify-between mb-10 border-b border-slate-100 pb-6">
                <h3 className="text-xl font-black text-slate-800 uppercase tracking-widest">Mediathek</h3>
                <div className="flex gap-2">
                   <span className="px-3 py-1 bg-[#0047AB] rounded-lg text-[10px] font-black text-white uppercase tracking-widest">Gesamt ({images.length})</span>
@@ -75,32 +76,7 @@ export default async function AdminGaleriePage() {
                  <p className="text-slate-400 font-bold">Keine Medien vorhanden.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6">
-                {images.map((item) => (
-                  <div key={item.id} className="group relative bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 aspect-square">
-                    {item.type === "image" ? (
-                      <img src={item.url} alt="" className="w-full h-full object-cover" />
-                    ) : (
-                      <video src={item.url} className="w-full h-full object-cover" muted />
-                    )}
-                    
-                    <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg text-[#0047AB] shadow-sm">
-                      {item.type === "image" ? <ImageIcon size={14} /> : <Film size={14} />}
-                    </div>
-
-                    <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center gap-3">
-                      <form action={async () => {
-                        "use server";
-                        await deleteImage(item.id);
-                      }}>
-                        <button type="submit" className="w-12 h-12 bg-red-600 text-white rounded-xl flex items-center justify-center hover:bg-red-700 transition-colors shadow-lg">
-                          <Trash2 size={20} />
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <AdminGalleryGrid initialImages={images} />
             )}
           </div>
         </div>
